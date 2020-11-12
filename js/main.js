@@ -1,13 +1,26 @@
 
 function todoFn() {
 
+
+
+    const loader = document.querySelector('#loader');
+
+    
+    setTimeout(()=>{
+        loader.classList.add('hide')
+    },3000)
+    
+    
+    
+    
+    
+    
     const submit = document.querySelector('form');
     const input = document.querySelector('#todo');
     const ul = document.querySelector('.todo--tasks');
     const clear = document.querySelector('.clear')
     const select = document.querySelector('select');
-    console.log(select.value);
-
+ 
   
 
 

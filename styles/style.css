@@ -101,6 +101,7 @@ main {
   width: 100%;
   max-width: 300px;
   background-color: #fff;
+  position: relative;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,6 +118,40 @@ main {
           flex-direction: column;
   -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 10000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.overlay .loader {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 5px solid var(--grey-5);
+  border-top: 5px solid var(--dark-1);
+  -webkit-transition: -webkit-transform 2s ease;
+  transition: -webkit-transform 2s ease;
+  transition: transform 2s ease;
+  transition: transform 2s ease, -webkit-transform 2s ease;
+  -webkit-animation: spin 2s ease infinite;
+          animation: spin 2s ease infinite;
 }
 
 .title--section {
@@ -209,6 +244,7 @@ main {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   z-index: 9000;
 }
@@ -344,6 +380,32 @@ ul li button svg {
 
 .show {
   display: none;
+}
+
+.hide {
+  display: none;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 @media screen and (min-width: 481px) {

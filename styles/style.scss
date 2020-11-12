@@ -106,15 +106,38 @@ main {
     width: 100%;
     max-width: 300px;
     background-color: #fff;
-   
+    position: relative;
     border-radius: 5px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     box-shadow: 0 5px 10px -5px rgba($color: #000000, $alpha: 0.2);
+  
 
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .loader{
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 5px solid var(--grey-5);
+        border-top:5px solid var(--dark-1) ;
+        transition: transform 2s ease;
+        animation: spin 2s ease infinite;
+    }
 }
 
 .title--section {
@@ -219,6 +242,7 @@ main {
         width: 100%;
         height: 30px;
         appearance: none;
+       background-color:#fff ;
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
         z-index: 9000;
 
@@ -350,6 +374,20 @@ ul {
 
 .show {
     display: none;
+}
+.hide{
+    display: none;
+}
+@keyframes spin{
+    0%{
+        transform: rotate(0);
+        
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+
 }
 
 @media screen and(min-width:481px) {
