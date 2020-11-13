@@ -8,7 +8,7 @@ function todoFn() {
     
     setTimeout(()=>{
         loader.classList.add('hide')
-    },3000)
+    },2000)
     
     
     
@@ -20,10 +20,28 @@ function todoFn() {
     const ul = document.querySelector('.todo--tasks');
     const clear = document.querySelector('.clear')
     const select = document.querySelector('select');
+    const label = document.querySelector('label');
  
   
 
+    function setTheme(theme) {
 
+        localStorage.setItem('theme', theme);
+        console.log( localStorage.getItem('theme'));
+        document.body.className=theme;;
+        console.log(document.body.className);
+    
+        
+        
+    }
+    function themeSwitch(){
+        if (localStorage.getItem('theme')=== 'dark') {
+            setTheme('light')
+            
+        } else {
+            setTheme('dark')
+        }
+    }
 
 function getInput(e) {
     e.preventDefault();
@@ -34,7 +52,8 @@ if (values == '') {
 }else{
     const tasks ={
         taskName:`${values}`,
-        state: 'new'
+        state: 'new',
+       
     }
 
   
@@ -68,6 +87,11 @@ fetchData();
 function fetchData() {
 
     const todoTasks = JSON.parse(localStorage.getItem('tasks'));
+
+    //get theme and set theme 
+
+    const theme = localStorage.getItem('theme');
+    document.body.className = theme;
 
 
     if (todoTasks === null) {
@@ -219,6 +243,17 @@ function selectFn() {
 
 
 }
+function toggleFn(e) {
+    e.preventDefault();
+   
+    const tog = document.querySelector('#toggle--button');
+tog.classList.toggle('move');
+themeSwitch();
+    
+    
+}
+
+
 fetchData();
 
 
@@ -234,7 +269,8 @@ clear.addEventListener('click', (e)=>{
 
 
 })
-select.addEventListener('change', selectFn)
+select.addEventListener('change', selectFn);
+label.addEventListener('click', toggleFn)
    
 }
 
