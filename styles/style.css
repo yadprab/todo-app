@@ -27,10 +27,10 @@
 }
 
 .light {
-  --bg:#ffffff;
-  --box:rgba(243, 241, 254, 1);
-  --box-1:rgba(243, 241, 254, 0.5);
-  --border-color:rgba(0,0,0,0.4);
+  --bg: #ffffff;
+  --box: rgba(243, 241, 254, 1);
+  --box-1: rgba(243, 241, 254, 0.5);
+  --border-color: rgba(0, 0, 0, 0.4);
   --bg-1: hsl(230, 22%, 74%);
 }
 
@@ -55,6 +55,8 @@ img {
 body {
   line-height: 1.5;
   font-family: var(--font);
+  background-color: var(--white-1);
+  height: 100vh;
 }
 
 header {
@@ -71,6 +73,7 @@ header nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
   -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
 }
@@ -109,8 +112,6 @@ header svg {
 
 main {
   max-width: 480px;
-  height: 100vh;
-  background-color: var(--white-1);
 }
 
 .container {
@@ -442,13 +443,13 @@ ul li button svg {
 }
 
 .dark {
-  --bg:hsl(228, 28%, 20%);
+  --bg: hsl(228, 28%, 20%);
   --bg-1: hsl(232, 19%, 15%);
   --white-1: hsl(232, 19%, 15%);
-  --border-color:rgba(255,255,255,0.2);
+  --border-color: rgba(255, 255, 255, 0.2);
   --dark-1: hsl(0, 0%, 100%);
-  --box: hsla(0, 0%, 100%,1);
-  --box-1: hsl(0, 0%, 100%,0.5);
+  --box: hsla(0, 0%, 100%, 1);
+  --box-1: hsl(0, 0%, 100%, 0.5);
 }
 
 .clear {

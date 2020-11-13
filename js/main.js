@@ -13,8 +13,8 @@ function todoFn() {
     
     
     
-    
-    
+   
+   
     const submit = document.querySelector('form');
     const input = document.querySelector('#todo');
     const ul = document.querySelector('.todo--tasks');
