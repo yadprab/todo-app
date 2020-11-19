@@ -9,4 +9,4 @@
 * JS
 
 ##with light theme
-![image](https://imgur.com/1tCx0pV)
+![](https://imgur.com/1tCx0pV)
