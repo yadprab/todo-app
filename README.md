@@ -10,5 +10,5 @@
 
 ##with light theme
 
-![light theme](https://imgur.com/1tCx0pV)
+![light theme](https://imgflip.com/gif/4mynyq)
 
