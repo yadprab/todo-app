@@ -9,4 +9,5 @@
 * JS
 
 ##with light theme
-![](https://imgur.com/1tCx0pV)
+![light theme](https://imgur.com/1tCx0pV)
+
