@@ -29,7 +29,7 @@ function todoFn() {
         localStorage.setItem('theme', theme);
         console.log( localStorage.getItem('theme'));
         document.body.className=theme;;
-        console.log(document.body.className);
+        
     
         
         
