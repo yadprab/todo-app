@@ -1,108 +1,63 @@
-
 function todoFn() {
+  const loader = document.querySelector("#loader");
 
+  setTimeout(() => {
+    loader.classList.add("hide");
+  }, 2000);
 
+  const submit = document.querySelector("form");
 
-    const loader = document.querySelector('#loader');
+  const input = document.querySelector("#todo");
 
-    
-    setTimeout(()=>{
-        loader.classList.add('hide')
-    },2000)
-    
-    
-    
-    
-   
-   
-    const submit = document.querySelector('form');
-    const input = document.querySelector('#todo');
-    const ul = document.querySelector('.todo--tasks');
-    const clear = document.querySelector('.clear')
-    const select = document.querySelector('select');
-    const label = document.querySelector('label');
- 
-  
+  const ul = document.querySelector(".todo--tasks");
 
-    function setTheme(theme) {
+  const clear = document.querySelector(".clear");
 
-        localStorage.setItem('theme', theme);
-        console.log( localStorage.getItem('theme'));
-        document.body.className=theme;;
-        console.log(document.body.className);
-    
-        
-        
-    }
-    function themeSwitch(){
-        if (localStorage.getItem('theme')=== 'dark') {
-            setTheme('light')
-            
-        } else {
-            setTheme('dark')
-        }
-    }
+  const select = document.querySelector("select");
 
-function getInput(e) {
+  const label = document.querySelector("label");
+
+  function getInput(e) {
     e.preventDefault();
     const values = input.value;
-  
-if (values == '') {
-    window.alert('enter the task')
-}else{
-    const tasks ={
-        taskName:`${values}`,
-        state: 'new',
-       
-    }
 
-  
+    if (values == "") {
+      window.alert("enter the task");
+    } else {
+      const tasks = {
+        taskName: `${values}`,
+        state: "new",
+      };
 
-    if (localStorage.getItem('tasks')===null) {
+      if (localStorage.getItem("tasks") === null) {
         const taskArr = [];
-    
+
         taskArr.push(tasks);
-    
-       localStorage.setItem('tasks', JSON.stringify(taskArr));
-        
-    }else{
-    
-       const taskData = JSON.parse(localStorage.getItem('tasks'));
-       taskData.push(tasks);
-    
-       localStorage.setItem('tasks', JSON.stringify(taskData));
-    
+
+        localStorage.setItem("tasks", JSON.stringify(taskArr));
+      } else {
+        const taskData = JSON.parse(localStorage.getItem("tasks"));
+        taskData.push(tasks);
+
+        localStorage.setItem("tasks", JSON.stringify(taskData));
+      }
     }
-}
 
+    //never forget to rest form
+    submit.reset();
 
-//never forget to rest form 
-submit.reset();
+    fetchData();
+  }
 
-fetchData();
-
-    
-}
-
-function fetchData() {
-
-    const todoTasks = JSON.parse(localStorage.getItem('tasks'));
-
-    //get theme and set theme 
-
-    const theme = localStorage.getItem('theme');
-    document.body.className = theme;
-
+  function fetchData() {
+    const todoTasks = JSON.parse(localStorage.getItem("tasks"));
 
     if (todoTasks === null) {
-        return;
-        
-    }else{
-        
-   const html =  todoTasks.map(task=>{
-
-
-            return `
+      return;
+    } else {
+      const html = todoTasks
+        .map((task) => {
+          return `
            <li class = ' ${task.state}'><span class="task--name" > ${task.taskName} </span> 
             <section class="button--area">
                 <button id="completed">
@@ -130,168 +85,156 @@ function fetchData() {
             
             
             
-            `
+            `;
+        })
+        .join("");
+      ul.innerHTML = html;
+    }
 
-
-
-
-
-
-        }).join('')
-     ul.innerHTML = html;
-
- 
-
-           
-            
-        }
-
- 
- taskState();
-
-
-    
-}
-function taskState() {
-  if (localStorage.getItem('tasks')=== null) {
-      return;
-      
-  } else {
-
-    const update = JSON.parse(localStorage.getItem('tasks'));
-  
-    const completed = document.querySelectorAll('#completed');
-    const remove = document.querySelectorAll('#delete');
-    const undo = document.querySelectorAll('.undo')
-    completed.forEach((task,index)=>task.addEventListener('click', (e)=>{
-
-        e.preventDefault();
-      
-          setTimeout(()=>{
-            update[index].state = 'finished';
-            localStorage.setItem('tasks', JSON.stringify(update));
-            fetchData();
-          }, 1000)
-       
-
-      
-
-     
- 
-
-   
-    }))
-    remove.forEach((task,index)=>task.addEventListener('click', (e)=>{
-       
-        e.preventDefault();
-       update[index].state = 'removed';
-       localStorage.setItem('tasks', JSON.stringify(update));
-       fetchData();
-
-
- 
-       
-
-   
-    },{once:true}))
-    undo.forEach((task, index)=>{task.addEventListener('click', (e)=>{
-        e.preventDefault();
-        update[index].state = 'new';
-        localStorage.setItem('tasks', JSON.stringify(update));
-       fetchData();
-       
- 
-
-    })})
-  
- 
-      
+    taskState();
   }
-   
-  
-  
 
-    
+  function taskState() {
+    if (localStorage.getItem("tasks") === null) {
+      return;
+    } else {
+      const update = JSON.parse(localStorage.getItem("tasks"));
 
-   
+      const completed = document.querySelectorAll("#completed");
+      const remove = document.querySelectorAll("#delete");
+      const undo = document.querySelectorAll(".undo");
+      completed.forEach((task, index) =>
+        task.addEventListener("click", (e) => {
+          e.preventDefault();
 
-}
-function selectFn() {
-   const option = select.value;
+          setTimeout(() => {
+            update[index].state = "finished";
+            localStorage.setItem("tasks", JSON.stringify(update));
+            fetchData();
+          }, 1000);
+        })
+      );
+      remove.forEach((task, index) =>
+        task.addEventListener(
+          "click",
+          (e) => {
+            e.preventDefault();
+            update[index].state = "removed";
+            localStorage.setItem("tasks", JSON.stringify(update));
+            fetchData();
+          },
+          { once: true }
+        )
+      );
+      undo.forEach((task, index) => {
+        task.addEventListener("click", (e) => {
+          e.preventDefault();
+          update[index].state = "new";
+          localStorage.setItem("tasks", JSON.stringify(update));
+          fetchData();
+        });
+      });
+    }
+  }
 
-   const li = ul.querySelectorAll('li');
-   const liArr = [...li];
+  function selectFn() {
+    const option = select.value;
 
-   switch (option) {
-       case 'completed':
-           liArr.filter(list=>list.classList.contains('finished')?list.style.display='flex':list.style.display='none')
-           
-           break;
+    const li = ul.querySelectorAll("li");
+    const liArr = [...li];
 
-       case 'uncompleted':
-            liArr.filter(list=>list.classList.contains('new')?list.style.display='flex':list.style.display='none')
-           
-           break;
-   
-       default:
-        liArr.forEach(list=>!list.classList.contains('removed')?list.style.display = 'flex':list.style.display='none');
-           break;
-   }
-  
+    switch (option) {
+      case "completed":
+        liArr.filter((list) =>
+          list.classList.contains("finished")
+            ? (list.style.display = "flex")
+            : (list.style.display = "none")
+        );
 
+        break;
 
+      case "uncompleted":
+        liArr.filter((list) =>
+          list.classList.contains("new")
+            ? (list.style.display = "flex")
+            : (list.style.display = "none")
+        );
 
+        break;
 
-}
-function toggleFn(e) {
+      default:
+        liArr.forEach((list) =>
+          !list.classList.contains("removed")
+            ? (list.style.display = "flex")
+            : (list.style.display = "none")
+        );
+        break;
+    }
+  }
+
+  function toggleFn(e) {
     e.preventDefault();
-   
-    const tog = document.querySelector('#toggle--button');
-tog.classList.toggle('move');
-themeSwitch();
-    
-    
-}
+    const tog = document.querySelector("#toggle--button");
+    const themeObj = {
+      theme: "",
+      state: "",
+    };
 
+    if (document.body.className == "light") {
+      document.body.className = "dark";
 
-fetchData();
+      tog.className = "move";
 
+      themeObj.theme = document.body.className;
 
+      themeObj.state = tog.className;
 
+      localStorage.setItem("theme", JSON.stringify(themeObj));
+    } else {
+      document.body.className = "light";
 
-submit.addEventListener('submit', getInput);
-clear.addEventListener('click', (e)=>{
+      tog.className = "";
+
+      themeObj.theme = document.body.className;
+
+      themeObj.state = tog.className;
+
+      localStorage.setItem("theme", JSON.stringify(themeObj));
+    }
+  }
+
+  const setTheme = () => {
+    if (localStorage.getItem("theme") == null) {
+      return;
+    } else {
+      const label = document.querySelector("#toggle--button");
+
+      const currentTheme = JSON.parse(localStorage.getItem("theme"));
+
+      const { theme, state } = currentTheme;
+
+      document.body.className = theme;
+
+      label.className = state;
+    }
+  };
+
+  fetchData();
+
+  setTheme();
+
+  submit.addEventListener("submit", getInput);
+
+  clear.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(e);
-    localStorage.removeItem('tasks');
- ul.innerHTML = '';
 
+    localStorage.removeItem("tasks");
+    ul.innerHTML = "";
+  });
 
+  select.addEventListener("change", selectFn);
 
-})
-select.addEventListener('change', selectFn);
-label.addEventListener('click', toggleFn)
-   
+  label.addEventListener("click", toggleFn);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-window.addEventListener('DOMContentLoaded', todoFn);
+window.addEventListener("DOMContentLoaded", todoFn);
