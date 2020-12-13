@@ -9,47 +9,7 @@ function todoFn() {
 
   const input = document.querySelector("#todo");
 
-<<<<<<< HEAD
   const ul = document.querySelector(".todo--tasks");
-=======
-    
-    setTimeout(()=>{
-        loader.classList.add('hide')
-    },2000)
-    
-    
-    
-    
-   
-   
-    const submit = document.querySelector('form');
-    const input = document.querySelector('#todo');
-    const ul = document.querySelector('.todo--tasks');
-    const clear = document.querySelector('.clear')
-    const select = document.querySelector('select');
-    const label = document.querySelector('label');
- 
-  
-
-    function setTheme(theme) {
-
-        localStorage.setItem('theme', theme);
-        console.log( localStorage.getItem('theme'));
-        document.body.className=theme;;
-        
-    
-        
-        
-    }
-    function themeSwitch(){
-        if (localStorage.getItem('theme')=== 'dark') {
-            setTheme('light')
-            
-        } else {
-            setTheme('dark')
-        }
-    }
->>>>>>> e60e5f9f11d41a3ddd33f87c36115c90b45373aa
 
   const clear = document.querySelector(".clear");
 
@@ -277,8 +237,4 @@ function todoFn() {
   label.addEventListener("click", toggleFn);
 }
 
-<<<<<<< HEAD
 window.addEventListener("DOMContentLoaded", todoFn);
-=======
-window.addEventListener('DOMContentLoaded', todoFn);
->>>>>>> e60e5f9f11d41a3ddd33f87c36115c90b45373aa
