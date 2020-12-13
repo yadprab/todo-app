@@ -101,8 +101,11 @@ function todoFn() {
       const update = JSON.parse(localStorage.getItem("tasks"));
 
       const completed = document.querySelectorAll("#completed");
+
       const remove = document.querySelectorAll("#delete");
+
       const undo = document.querySelectorAll(".undo");
+
       completed.forEach((task, index) =>
         task.addEventListener("click", (e) => {
           e.preventDefault();
