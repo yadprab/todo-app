@@ -1,91 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>TO DO</title>
-</head>
-<body class="light">
+  </head>
+  <body class="light">
     <header>
-        <nav>
-            <section class="logo">
-                <a href="index.html"><img src="./images/TO_DO__1_-removebg-preview.png" alt="logo" height="50px"></a>
-            </section>
-            <label for="toggle--button">
-                <button id="toggle--button"></button>
-            </label>
-
-            
-           
-        </nav>
-      
+      <nav>
+        <section class="logo">
+          <a href="index.html"
+            ><img
+              src="./images/TO_DO__1_-removebg-preview.png"
+              alt="logo"
+              height="50px"
+          /></a>
+        </section>
+        <label for="toggle--button" class="default">
+          <button id="toggle--button"></button>
+        </label>
+      </nav>
     </header>
     <main>
-        <section class="container">
-         <section class="to--do">
-            <section class="title--section">
-                <h1>to do </h1>
-                <article>
-                    <p>do or do not there is no try</p>
-                </article>
-               
+      <section class="container">
+        <section class="to--do">
+          <section class="title--section">
+            <h1>to do</h1>
+            <article>
+              <p>do or do not there is no try</p>
+            </article>
+          </section>
+          <section class="input">
+            <form action="">
+              <input
+                type="text"
+                name="todo"
+                id="todo"
+                placeholder="enter your task"
+              />
+              <input type="submit" value="add task" id="submit" />
+            </form>
+          </section>
+          <section class="tasks">
+            <h2>tasks</h2>
+            <section class="select--area">
+              <select
+                name="tasks--selection"
+                id="tasks--selection"
+                autocomplete="off"
+              >
+                <option value="all">all</option>
+                <option value="completed">completed</option>
+                <option value="uncompleted">uncompleted</option>
+              </select>
 
+              <button id="select">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.70711 7.29289L10 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68342 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z"
+                    fill="#4A5568"
+                  />
+                </svg>
+              </button>
             </section>
-            <section class="input">
-                <form action="">
-                    <input type="text" name="todo" id="todo" placeholder="enter your task">
-                    <input type="submit" value="add task" id="submit">
-                </form>
-
-            </section>
-            <section class="tasks">
-                <h2>tasks</h2>
-                <section class="select--area">
-                    <select name="tasks--selection" id="tasks--selection" autocomplete="off">
-                        <option value="all">all</option>
-                        <option value="completed">completed</option>
-                        <option value="uncompleted">uncompleted</option>
-                       </select>
-
-                       <button id="select">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.70711 7.29289L10 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68342 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z" fill="#4A5568"/>
-                            </svg>
-                            
-
-                       </button>
-                </section>
-               <ul class="todo--tasks">
-                  
-                   
-               </ul>
-
-              
-
-            </section>
-            <button class="clear " >clear</button>
-           <div class="overlay" id="loader">
-               <div class="box main--box"></div>
-               <div class="box"></div>
-               <div class="box"></div>
-               <div class="box"></div>
-               <div class="box"></div>
-               <div class="box"></div>
-             <!-- <div class="loader"></div> -->
-           </div>
-         </section>
-
-
-
-        
+            <ul class="todo--tasks"></ul>
+          </section>
+          <button class="clear">clear</button>
+          <div class="overlay" id="loader">
+            <div class="box main--box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <!-- <div class="loader"></div> -->
+          </div>
         </section>
+      </section>
     </main>
 
- 
- 
-    
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>

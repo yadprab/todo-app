@@ -79,8 +79,8 @@ header nav {
 }
 
 header nav label {
-  width: 60px;
-  height: 25px;
+  width: 40px;
+  height: 20px;
   background-color: var(--bg-1);
   border-radius: 20px;
   position: relative;
@@ -89,8 +89,8 @@ header nav label {
 
 header nav label button {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: var(--dark-1);
   -webkit-transition: -webkit-transform 0.4s ease-in;
   transition: -webkit-transform 0.4s ease-in;
@@ -494,8 +494,8 @@ ul li button svg {
 }
 
 .move {
-  -webkit-transform: translateX(150%);
-          transform: translateX(150%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .finished span {
